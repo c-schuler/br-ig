@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="org.example.bilirubin" />
+  <url value="http://fhir.org/guides/example/bilirubin/ImplementationGuide/org.example.bilirubin" />
+  <version value="1.0.0" />
+  <name value="BiliRubin" />
+  <title value="BiliRubin IG Example" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2025-09-14" />
+  <publisher value="Example Publisher" />
+  <contact>
+    <telecom>
+      <system value="url" />
+      <value value="https://www.example.org" />
+    </telecom>
+  </contact>
+  <description value="Example BiliRubin IG" />
+  <packageId value="org.example.bilirubin" />
+  <fhirVersion value="4.0.1" />
+</ImplementationGuide>

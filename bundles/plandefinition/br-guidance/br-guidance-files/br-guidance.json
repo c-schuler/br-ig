@@ -1,0 +1,97 @@
+{
+  "resourceType": "PlanDefinition",
+  "id": "br-guidance",
+  "meta": {
+    "profile": [ "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-recommendationdefinition", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-publishableplandefinition" ]
+  },
+  "contained": [ {
+    "resourceType": "Library",
+    "id": "effective-data-requirements",
+    "name": "EffectiveDataRequirements",
+    "status": "active",
+    "type": {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/library-type",
+        "code": "module-definition"
+      } ]
+    },
+    "parameter": [ {
+      "name": "Is Guidance Recommended?",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "boolean"
+    } ]
+  } ],
+  "extension": [ {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "HyperBiliRisk"
+    }, {
+      "url": "name",
+      "valueString": "Is Guidance Recommended?"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Is Guidance Recommended?\":\n  true"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 0
+    } ]
+  }, {
+    "id": "effective-data-requirements",
+    "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements",
+    "valueCanonical": "#effective-data-requirements"
+  } ],
+  "url": "http://fhir.org/guides/example/bilirubin/PlanDefinition/br-guidance",
+  "version": "2022.1.0",
+  "name": "PlanDefinition_Bili_Rubin_Guidance",
+  "title": "Bili Rubin Guidance",
+  "type": {
+    "coding": [ {
+      "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
+      "code": "eca-rule",
+      "display": "ECA Rule"
+    } ]
+  },
+  "status": "draft",
+  "experimental": true,
+  "date": "2025-09-14",
+  "publisher": "Some Publisher",
+  "description": "An example of CDS logic for BiliRubin guidance",
+  "jurisdiction": [ {
+    "coding": [ {
+      "system": "urn:iso:std:iso:3166",
+      "code": "US",
+      "display": "United States of America"
+    } ]
+  } ],
+  "purpose": "Example for connectathon",
+  "usage": "CDS Hooks Sandbox testing",
+  "topic": [ {
+    "text": "BiliRubin Risk Guidance"
+  } ],
+  "author": [ {
+    "name": "Matthew Wieler"
+  }, {
+    "name": "Chris Schuler"
+  } ],
+  "library": [ "http://fhir.org/guides/example/bilirubin/Library/HyperBiliRisk" ],
+  "action": [ {
+    "title": "This is the CDS Hooks card summary",
+    "description": "This is the CDS Hooks card detail",
+    "priority": "urgent",
+    "trigger": [ {
+      "type": "named-event",
+      "name": "patient-view"
+    } ],
+    "condition": [ {
+      "kind": "applicability",
+      "expression": {
+        "description": "Determine whether BiliRubin risk factors are present",
+        "language": "text/cql.identifier",
+        "expression": "Is Guidance Recommended?"
+      }
+    } ]
+  } ]
+}
