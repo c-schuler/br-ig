@@ -5,4 +5,4 @@ An Example FHIR IG for BiliRubin CDS Hooks Guidance
 
 1. Install the CQF Tooling jar: `sh _updateCQFTooling.sh`
 2. Run refresh: `sh _refresh.sh`
-3. POST resulting transaction bundle to CDS Service
+3. POST resulting transaction bundle to CDS Service (https://opioid-sandbox.cqframework.org/cdc/opioid-cds-r4/cds-service/fhir)
