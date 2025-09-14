@@ -14,7 +14,7 @@ code "Gestational age": '11884-4' from "LOINC" display 'Gestational age Estimate
 context Patient
 
 define "Baby Age in Hours":
-  difference in hours between Patient.birthDate and (LatestTotalBili.effective as DateTime)
+  difference in hours between FHIRHelpers.ToDate(Patient.birthDate) and FHIRHelpers.ToDateTime(LatestTotalBili.effective as FHIR.dateTime)
 
 define "Gestational Age in Weeks":
   First([Observation: code in { "Gestational age" }] O
