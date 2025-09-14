@@ -1,0 +1,98 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "test-infant-38wk",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
+            "valueDateTime": "2025-01-14T09:00:00Z"
+          }
+        ],
+        "identifier": [
+          {
+            "system": "http://example.org/mrn",
+            "value": "12345"
+          }
+        ],
+        "name": [
+          {
+            "family": "Chalmers",
+            "given": ["Super", "Ninetendo"]
+          }
+        ],
+        "gender": "unknown",
+        "birthDate": "2025-01-14"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Patient/test-infant-38wk"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "bilirubin-test-18",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "1975-2",
+              "display": "Bilirubin.total [Mass/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "Total Bilirubin"
+        },
+        "subject": {
+          "reference": "Patient/test-infant-38wk"
+        },
+        "effectiveDateTime": "2025-01-14T14:00:00Z",
+        "valueQuantity": {
+          "value": 18,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/bilirubin-test-18"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "gestational-age-38wk",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11884-4",
+              "display": "Gestational age Estimated"
+            }
+          ],
+          "text": "Gestational Age"
+        },
+        "subject": {
+          "reference": "Patient/test-infant-38wk"
+        },
+        "effectiveDateTime": "2025-01-14T09:00:00Z",
+        "valueQuantity": {
+          "value": 38,
+          "unit": "wk",
+          "system": "http://unitsofmeasure.org",
+          "code": "wk"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/gestational-age-38wk"
+      }
+    }
+  ]
+}

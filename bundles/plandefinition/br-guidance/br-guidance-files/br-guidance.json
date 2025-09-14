@@ -78,8 +78,6 @@
   } ],
   "library": [ "http://fhir.org/guides/example/bilirubin/Library/HyperBiliRisk" ],
   "action": [ {
-    "title": "This is the CDS Hooks card summary",
-    "description": "This is the CDS Hooks card detail",
     "priority": "urgent",
     "trigger": [ {
       "type": "named-event",
@@ -91,6 +89,19 @@
         "description": "Determine whether BiliRubin risk factors are present",
         "language": "text/cql.identifier",
         "expression": "Is Guidance Recommended?"
+      }
+    } ],
+    "dynamicValue": [ {
+      "path": "action.title",
+      "expression": {
+        "language": "text/cql.identifier",
+        "expression": "Determine Score"
+      }
+    }, {
+      "path": "action.description",
+      "expression": {
+        "language": "text/cql.identifier",
+        "expression": "Determine Score"
       }
     } ]
   } ]
