@@ -39,6 +39,21 @@ define "Phototherapy Threshold":
 define "Is Guidance Recommended?":
   "Phototherapy Threshold" is not null and (LatestTotalBili.value as Quantity).value > "Phototherapy Threshold"
 
+define "Bilirubin Above Threshold":
+  (LatestTotalBili.value as Quantity).value - "Phototherapy Threshold"
+
+define "Detailed Summary":
+  case
+    when "Gestational Age in Weeks".value < 35 then 'Guidance not applicable for <35 weeks gestation'
+    when "Is Guidance Recommended?" then
+      'Phototherapy recommended - Bilirubin: ' + ToString((LatestTotalBili.value as Quantity).value) +
+      ' mg/dL (threshold: ' + ToString("Phototherapy Threshold") +
+      ' mg/dL, ' + ToString("Bilirubin Above Threshold") + ' mg/dL above threshold)'
+    else
+      'No phototherapy needed - Bilirubin: ' + ToString((LatestTotalBili.value as Quantity).value) +
+      ' mg/dL (threshold: ' + ToString("Phototherapy Threshold") + ' mg/dL)'
+  end
+
 define "Determine Score":
   case
     when "Gestational Age in Weeks".value < 35 then 'guidance not applicable for <35 weeks gestation'
